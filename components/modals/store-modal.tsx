@@ -42,7 +42,7 @@ export const StoreModal = () => {
 
       const response = await axios.post("/api/stores", values);
 
-      toast.success("Store created.");
+      window.location.assign(`/${response.data.id}`); // use this instead of router because to ensure the db is loading, some cases in using router, the db is not ready to sync and leading stuck
     } catch (error) {
       toast.error("Something went wrong.");
     } finally {
